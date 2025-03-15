@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iFhrc2SagIw=",
+  "dgSpecHash": "RkNcKHVuXvY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\BridgeLabz_Visual_Studio\\AddressBookProject\\AddressBook\\AddressBook\\AddressBook.csproj",
+  "projectFilePath": "C:\\Users\\user\\Desktop\\AddressBook_GIT\\AddressBook_2384200077\\AddressBook\\AddressBook.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

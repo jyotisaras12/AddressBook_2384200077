@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\BridgeLabz_Visual_Studio\\AddressBookProject\\AddressBook\\ModelLayer\\ModelLayer.csproj": {}
+    "C:\\Users\\user\\Desktop\\AddressBook_GIT\\AddressBook_2384200077\\ModelLayer\\ModelLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\BridgeLabz_Visual_Studio\\AddressBookProject\\AddressBook\\ModelLayer\\ModelLayer.csproj": {
+    "C:\\Users\\user\\Desktop\\AddressBook_GIT\\AddressBook_2384200077\\ModelLayer\\ModelLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\BridgeLabz_Visual_Studio\\AddressBookProject\\AddressBook\\ModelLayer\\ModelLayer.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\AddressBook_GIT\\AddressBook_2384200077\\ModelLayer\\ModelLayer.csproj",
         "projectName": "ModelLayer",
-        "projectPath": "C:\\Users\\user\\Desktop\\BridgeLabz_Visual_Studio\\AddressBookProject\\AddressBook\\ModelLayer\\ModelLayer.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\AddressBook_GIT\\AddressBook_2384200077\\ModelLayer\\ModelLayer.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\BridgeLabz_Visual_Studio\\AddressBookProject\\AddressBook\\ModelLayer\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\AddressBook_GIT\\AddressBook_2384200077\\ModelLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
