@@ -162,3 +162,8 @@ C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\obj\Deb
 C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\obj\Debug\net6.0\AddressBook.pdb
 C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\obj\Debug\net6.0\AddressBook.genruntimeconfig.cache
 C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\obj\Debug\net6.0\ref\AddressBook.dll
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\obj\Debug\net6.0\AddressBook.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
