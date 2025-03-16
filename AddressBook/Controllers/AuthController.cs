@@ -10,11 +10,11 @@ namespace AddressBook.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IAuthBL _authBL;
+        private readonly IUserBL _userBL;
 
-        public AuthController(IAuthBL authBL)
+        public AuthController(IUserBL userBL)
         {
-            _authBL = authBL;
+            _userBL = userBL;
         }
 
         [HttpPost("register")]
@@ -23,7 +23,7 @@ namespace AddressBook.Controllers
             try
             {
                 var response = new ResponseModel<string>();
-                var data = _authBL.RegisterBL(userDTO);
+                var data = _userBL.RegisterBL(userDTO);
                 if (data == null)
                 {
                     response.Success = false;
@@ -51,7 +51,7 @@ namespace AddressBook.Controllers
             try
             {
                 var response = new ResponseModel<string>();
-                var user = _authBL.LoginBL(userDTO);
+                var user = _userBL.LoginBL(userDTO);
                 if (user != null)
                 {
                     response.Success = true;
@@ -69,6 +69,49 @@ namespace AddressBook.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpPost("forget-password")]
+        public IActionResult ForgetPassword(ForgetPasswordDTO forgetPasswordDTO)
+        {
+            try
+            {
+                var result = _userBL.ForgetPasswordBL(forgetPasswordDTO);
+                if (!result)
+                {
+                    return BadRequest("Email not found!");
+                }
+
+                return Ok("Reset password email sent successfully.");
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+        
+        [HttpPost("reset-password")]
+        public IActionResult ResetPassword(ResetPasswordDTO resetPasswordDTO)
+        {
+            try
+            {
+                var result = _userBL.ResetPasswordBL(resetPasswordDTO);
+                if (!result)
+                {
+                    return BadRequest("Invalid or expired token.");
+                }
+                return Ok("Password reset successfully.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
     }
 }

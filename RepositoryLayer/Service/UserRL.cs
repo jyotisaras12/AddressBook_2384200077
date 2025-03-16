@@ -17,12 +17,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace RepositoryLayer.Service
 {
-    public class AuthRL : IAuthRL
+    public class UserRL : IUserRL
     {
         private readonly AddressBookContext _context;
         private readonly IMapper _mapper;
 
-        public AuthRL(AddressBookContext context, IMapper mapper)
+        public UserRL(AddressBookContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -75,6 +75,13 @@ namespace RepositoryLayer.Service
             {
                 throw;
             }
+        }
+        public bool UpdatePasswordRL(User user)
+        {
+
+            _context.Users.Update(user);
+            _context.SaveChanges();
+            return true;
         }
     }
 }

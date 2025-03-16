@@ -8,9 +8,11 @@ using RepositoryLayer.Entity;
 
 namespace BusinessLayer.Interface
 {
-    public interface IAuthBL
+    public interface IUserBL
     {
         User RegisterBL(UserDTO userDTO);
         string LoginBL(UserDTO userDTO);
+        bool ForgetPasswordBL(ForgetPasswordDTO forgetPasswordDTO);
+        bool ResetPasswordBL(ResetPasswordDTO resetPasswordDTO);
     }
 }

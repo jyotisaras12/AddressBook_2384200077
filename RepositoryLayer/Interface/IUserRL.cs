@@ -8,10 +8,11 @@ using RepositoryLayer.Entity;
 
 namespace RepositoryLayer.Interface
 {
-    public interface IAuthRL
+    public interface IUserRL
     {
         User GetEmail(string email);
         User RegisterRL(User user);
         User LoginRL(UserDTO userDTO);
+        bool UpdatePasswordRL(User user);
     }
 }

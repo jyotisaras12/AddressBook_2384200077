@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using DataAccessLayer.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,10 +58,15 @@ var mapperConfig = new MapperConfiguration(cfg =>
 IMapper mapper = mapperConfig.CreateMapper();
 builder.Services.AddSingleton(mapper);
 
-builder.Services.AddScoped<IAuthRL, AuthRL>();
-builder.Services.AddScoped<IAuthBL, AuthBL>();
 builder.Services.AddScoped<IAddressBookRL, AddressBookRL>();
 builder.Services.AddScoped<IAddressBookBL, AddressBookBL>();
+
+builder.Services.AddSingleton<EmailService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+builder.Services.AddScoped<IUserRL, UserRL>();
+builder.Services.AddScoped<IUserBL, UserBL>();
+
 builder.Services.AddScoped<JwtServices>();
 
 // Register FluentValidation
