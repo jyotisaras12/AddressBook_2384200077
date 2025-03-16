@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer.Model;
 using RepositoryLayer.Entity;
+using Newtonsoft.Json;
+using RepositoryLayer.Interface;
 
 namespace AddressBook.Controllers
 {
@@ -11,10 +13,14 @@ namespace AddressBook.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IUserBL _userBL;
+        private readonly IRabbitMQProducer _rabbitMQProducer;
+        private readonly IEmailService _emailService;
 
-        public AuthController(IUserBL userBL)
+        public AuthController(IUserBL userBL, IRabbitMQProducer rabbitMQProducer, IEmailService emailservice)
         {
             _userBL = userBL;
+            _rabbitMQProducer = rabbitMQProducer;
+            _emailService = emailservice;
         }
 
         [HttpPost("register")]
@@ -30,18 +36,31 @@ namespace AddressBook.Controllers
                     response.Message = "User Already registered Successfully.";
                     response.Data = data.Email;
 
-                    return Ok(response);
+                    return BadRequest(response);
                 }
 
 
                 response.Success = true;
                 response.Message = "User registered Successfully.";
                 response.Data = data.Email;
+
+                string jsonMessage = JsonConvert.SerializeObject(userDTO);
+
+                try
+                {
+                    _rabbitMQProducer.PublishMessage(jsonMessage);
+                    _emailService.SendEmail(data.Email, "Registration Successful", "You are registered successfully.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"RabbitMQ or Email Error: {ex.Message}");
+                }
+
                 return Ok(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, new { success = false, message = "Internal Server Error", error = ex.Message });
             }
         }
 

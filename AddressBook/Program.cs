@@ -15,6 +15,7 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using DataAccessLayer.Service;
 using StackExchange.Redis;
+using RabbitMQ.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -82,6 +83,8 @@ builder.Services.AddScoped<IUserRL, UserRL>();
 builder.Services.AddScoped<IUserBL, UserBL>();
 
 builder.Services.AddScoped<JwtServices>();
+
+builder.Services.AddSingleton<IRabbitMQProducer, RabbitMQProducer>();
 
 // Register FluentValidation
 
