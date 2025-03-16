@@ -14,8 +14,22 @@ using System.Text;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using DataAccessLayer.Service;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure Redis
+var configurationOptions = new ConfigurationOptions
+{
+    EndPoints = { "localhost:6380" },
+    AbortOnConnectFail = false,
+    ConnectTimeout = 5000
+};
+
+var redisConnection = ConnectionMultiplexer.Connect(configurationOptions);
+builder.Services.AddSingleton<IConnectionMultiplexer>(redisConnection);
+builder.Services.AddSingleton<IDatabase>(sp =>
+    sp.GetRequiredService<IConnectionMultiplexer>().GetDatabase());
 
 // Add services to the container.
 

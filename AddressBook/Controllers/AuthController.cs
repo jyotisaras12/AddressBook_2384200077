@@ -111,7 +111,30 @@ namespace AddressBook.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
         }
+
+        [HttpPost("logout")]
+        public IActionResult Logout([FromBody] string email)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(email))
+                {
+                    return BadRequest("Email is required for logout.");
+                }
+
+                bool isLoggedOut = _userBL.LogoutBL(email);
+                if (isLoggedOut)
+                {
+                    return Ok(new { Success = true, Message = "User logged out successfully." });
+                }
+                return BadRequest("User is not logged in or session expired.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Success = false, Message = ex.Message });
+            }
+        }
+
     }
 }

@@ -12,6 +12,7 @@ using BusinessLayer.Interface;
 using Microsoft.Extensions.Configuration;
 using RepositoryLayer.Entity;
 using RepositoryLayer.Service;
+using StackExchange.Redis;
 
 namespace BusinessLayer.Service
 {
@@ -20,11 +21,13 @@ namespace BusinessLayer.Service
         private readonly IUserRL _userRL;
         private readonly JwtServices _jwtServices;
         private readonly IEmailService _emailService;
-        public UserBL(IUserRL userRL, JwtServices jwtServices, IEmailService emailService)
+        private readonly IDatabase _redisDb;
+        public UserBL(IUserRL userRL, JwtServices jwtServices, IEmailService emailService, IDatabase redisDb)
         {
             _userRL = userRL;
             _jwtServices = jwtServices;
             _emailService = emailService;
+            _redisDb = redisDb;
         }
 
         public User RegisterBL(UserDTO userDTO)
@@ -63,6 +66,14 @@ namespace BusinessLayer.Service
                     throw new ArgumentNullException(nameof(userDTO), "Login data cannot be null.");
                 }
 
+                string cacheKey = $"Token: {userDTO.Email}";
+
+                var cachedToken = _redisDb.StringGet(cacheKey);
+                if (!cachedToken.IsNullOrEmpty)
+                {
+                    return cachedToken;
+                }
+
                 var data = _userRL.LoginRL(userDTO);
 
                 if (data == null)
@@ -75,8 +86,11 @@ namespace BusinessLayer.Service
                     throw new Exception("Invalid credentials.");
                 }
 
-                return _jwtServices.GenerateToken(data); 
+                string token = _jwtServices.GenerateToken(data);
+                _redisDb.StringSet(cacheKey, token, TimeSpan.FromMinutes(30));
+                return token;
             }
+
             catch (ArgumentNullException ex)
             {
                 throw new Exception("Invalid login request: " + ex.Message);
@@ -142,7 +156,30 @@ namespace BusinessLayer.Service
             {
                 throw;
             }
+        }
 
+        public bool LogoutBL(string email)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(email))
+                {
+                    throw new ArgumentNullException(nameof(email), "Email cannot be null or empty.");
+                }
+
+                string cacheKey = $"Token: {email}";
+
+                if (_redisDb.KeyExists(cacheKey))
+                {
+                    _redisDb.KeyDelete(cacheKey);
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Logout failed: " + ex.Message);
+            }
         }
     }
 }

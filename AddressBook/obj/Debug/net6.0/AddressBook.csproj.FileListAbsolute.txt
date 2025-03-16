@@ -174,3 +174,5 @@ C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Deb
 C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\StackExchange.Redis.dll
