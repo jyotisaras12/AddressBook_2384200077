@@ -167,3 +167,10 @@ C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\obj\Deb
 C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\user\Desktop\AddressBook_GIT\AddressBook_2384200077\AddressBook\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll

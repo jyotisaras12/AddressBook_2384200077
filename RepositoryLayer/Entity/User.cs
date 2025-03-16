@@ -15,7 +15,7 @@ namespace RepositoryLayer.Entity
         [Required]
         public string Name { get; set; }
 
-        [Required]
+        [Required, EmailAddress]
         public string Email { get; set; }
 
         [Required]
